@@ -21,7 +21,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install azure-cli
           pip install helm
-          pip install pygobject
 
         #sudo apt-get install libglib2.0-0
       - name: Login via Azure CLI
@@ -50,10 +49,6 @@ jobs:
       - name: terraform apply
         run: cd terraformpart && terraform apply -auto-approve
 
-      # - name: Helm init
-      #   run: helm init
-      - name: quit the folder
-        run: cd ..
       - name: Helm install
-        run: helm init && helm repo list && helm install --kubeconfig terraformpart/.kube/config vote-app kubepart/deploy-votingapp/
+        run: sudo apt-get install libglib2.0-0 && helm init && helm repo list && helm install --kubeconfig terraformpart/.kube/config vote-app kubepart/deploy-votingapp/
         #run: helm install tp3-devops ./tp3_devops/helm
