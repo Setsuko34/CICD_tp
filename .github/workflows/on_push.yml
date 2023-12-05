@@ -50,5 +50,5 @@ jobs:
         run: cd terraformpart && terraform apply -auto-approve
 
       - name: Helm install
-        run: sudo apt-get install libglib2.0-0 && helm init && helm repo list && helm install --kubeconfig terraformpart/.kube/config vote-app kubepart/deploy-votingapp/
+        run: helm init --upgrade && helm init && helm repo list && helm install --kubeconfig terraformpart/.kube/config vote-app kubepart/deploy-votingapp/
         #run: helm install tp3-devops ./tp3_devops/helm
