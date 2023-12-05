@@ -26,16 +26,15 @@ jobs:
 
       - name: Helm install
         run: pip install helm
-      - name: go to the folder
-        run: cd terraformpart
+
         # se mettre dans le dossier tp3_devops pour lancer le terraform
 
       - name: Terraform init and validate
         uses: hashicorp/setup-terraform@v2
-      - run: terraform init
-      - run: terraform fmt
-      - run: terraform validate
-      - run: terraform plan
+      - run: cd terraformpart && terraform init && terraform fmt && terraform validate && terraform plan
+      # - run: terraform fmt
+      # - run: terraform validate
+      # - run: terraform plan
 
       - name: humanvalidation
         uses: trstringer/manual-approval@v1
