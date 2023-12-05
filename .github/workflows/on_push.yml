@@ -55,37 +55,10 @@ jobs:
       - name: terraform apply
         run: cd terraformpart && terraform apply -auto-approve
 
-      # - name: Helm install
-      #   run: |
-      #     helm init --upgrade
-      #     helm init
-      #     helm repo list
-      #     helm install --kubeconfig terraformpart/.kube/config vote-app kubepart/deploy-votingapp/
-      #   #run: helm install tp3-devops ./tp3_devops/helm
-
-      - name: Install glib dependencies
-        run: |
-          sudo apt-get install -y libglib2.0-0
-      - name: Set up Helm
-        run: |
-          helm init --client-only
-          helm repo list
-          helm version
-
-      - name: Print Python information
-        run: |
-          python --version
-          pip --version
-
-      - name: Verify Helm installation
+      - name: Helm install
         run: |
           helm init --upgrade
+          helm init
           helm repo list
-          helm version
-
-      - name: Run Helm commands
-        run: |
           helm install --kubeconfig terraformpart/.kube/config vote-app kubepart/deploy-votingapp/
-
-      - name: Display kubeconfig content
-        run: cat terraformpart/.kube/config
+        #run: helm install tp3-devops ./tp3_devops/helm
