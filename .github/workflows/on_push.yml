@@ -46,7 +46,7 @@ jobs:
           issue-body: "Dites 'yes' pour approuver le lancement du terraform apply"
           exclude-workflow-initiator-as-approver: false
       - name: terraform apply
-        run: terraform apply -auto-approve
+        run: cd terraformpart && terraform apply -auto-approve
 
       # - name: Helm init
       #   run: helm init
