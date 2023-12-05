@@ -20,13 +20,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install azure-cli
+          pip install helm
+          sudo apt-get install libglib2.0-0
       - name: Login via Azure CLI
         run: |
           az login --tenant ${{ secrets.AZURE_TENANT_ID }} -u ${{ secrets.AZURE_USERNAME }} -p ${{ secrets.AZURE_PASSWORD }}
-
-      - name: Helm install
-        run: pip install helm
-
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v1
         # se mettre dans le dossier tp3_devops pour lancer le terraform
 
       - name: Terraform init and validate
