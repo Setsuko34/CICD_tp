@@ -53,5 +53,5 @@ jobs:
       - name: quit the folder
         run: cd ..
       - name: Helm install
-        run: helm init && helm repo list && helm install --kubeconfig tp3_devops/.kube/config vote-app kubepart/deploy-votingapp/
+        run: helm init && helm repo list && helm install --kubeconfig terraformpart/.kube/config vote-app kubepart/deploy-votingapp/
         #run: helm install tp3-devops ./tp3_devops/helm
