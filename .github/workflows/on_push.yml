@@ -21,7 +21,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install azure-cli
           pip install helm
-          sudo apt-get install libglib2.0-0
+          pip install pygobject
+
+        #sudo apt-get install libglib2.0-0
       - name: Login via Azure CLI
         run: |
           az login --tenant ${{ secrets.AZURE_TENANT_ID }} -u ${{ secrets.AZURE_USERNAME }} -p ${{ secrets.AZURE_PASSWORD }}
