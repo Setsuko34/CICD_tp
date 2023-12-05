@@ -64,29 +64,29 @@ jobs:
       #   #run: helm install tp3-devops ./tp3_devops/helm
 
       - name: Set up Helm
-      run: |
-        helm init --client-only
-        helm repo list
-        helm version
+        run: |
+          helm init --client-only
+          helm repo list
+          helm version
 
-    - name: Print Python information
-      run: |
-        python --version
-        pip --version
+      - name: Print Python information
+        run: |
+          python --version
+          pip --version
 
-    - name: Verify Helm installation
-      run: |
-        helm init --upgrade
-        helm repo list
-        helm version
+      - name: Verify Helm installation
+        run: |
+          helm init --upgrade
+          helm repo list
+          helm version
 
-    - name: Install glib dependencies
-      run: |
-        sudo apt-get install -y libglib2.0-0
+      - name: Install glib dependencies
+        run: |
+          sudo apt-get install -y libglib2.0-0
 
-    - name: Run Helm commands
-      run: |
-        helm install --kubeconfig terraformpart/.kube/config vote-app kubepart/deploy-votingapp/
+      - name: Run Helm commands
+        run: |
+          helm install --kubeconfig terraformpart/.kube/config vote-app kubepart/deploy-votingapp/
 
-    - name: Display kubeconfig content
-      run: cat terraformpart/.kube/config
+      - name: Display kubeconfig content
+        run: cat terraformpart/.kube/config
