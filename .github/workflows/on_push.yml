@@ -27,7 +27,7 @@ jobs:
       - name: Helm install
         run: pip install helm
       - name: go to the folder
-        run: cd tp3_devops
+        run: cd terraformpart
         # se mettre dans le dossier tp3_devops pour lancer le terraform
 
       - name: Terraform init and validate
@@ -51,6 +51,8 @@ jobs:
 
       # - name: Helm init
       #   run: helm init
+      - name: quit the folder
+        run: cd ..
       - name: Helm install
-        run: helm install --kubeconfig .kube/config voting-app ../kubepart/deploy-votingapp/
+        run: helm install --kubeconfig tp3_devops/.kube/config vote-app kubepart/deploy-votingapp/
         #run: helm install tp3-devops ./tp3_devops/helm
